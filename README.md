@@ -3,8 +3,8 @@
 <div align="center">
 
 ![Athon Ecosystem](https://img.shields.io/badge/ATHON-Ecosystem-brightgreen?style=for-the-badge)
-![Status](https://img.shields.io/badge/Status-Produção-success?style=for-the-badge)
-![Tecnologias](https://img.shields.io/badge/Tech-Python%2C%20Julia%2C%20FastAPI%2C%20Airflow-blue?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Produ%C3%A7%C3%A3o-success?style=for-the-badge)
+![Tecnologias](https://img.shields.io/badge/Tech-Python%7CJulia%7CFastAPI%7CAirflow-blue?style=for-the-badge)
 
 **Sistema integrado para análise, previsão e otimização de distribuição energética**
 
@@ -18,94 +18,60 @@
 
 Este ecossistema integra três componentes especializados para criar uma solução completa de gestão energética inteligente, desde a coleta de dados climáticos até a otimização de distribuição de compensação energética.
 
-```mermaid
-graph TB
-    subgraph "🌤️ DADOS CLIMÁTICOS"
-        A[API de Dados Climáticos]
-        A1[Coleta de dados meteorológicos]
-        A2[Dados históricos por cidade]
-        A3[Granularidade diária/mensal]
-    end
-    
-    subgraph "🔋 PREVISÃO ENERGÉTICA"
-        B[EsteiraAthon]
-        B1[Previsões SARIMA/SARIMAX]
-        B2[Consumo energético]
-        B3[Geração solar/eólica]
-        B4[Airflow DAGs]
-    end
-    
-    subgraph "⚡ OTIMIZAÇÃO"
-        C[Otimizador Final]
-        C1[Algoritmo Hill Climbing]
-        C2[Compensação energética]
-        C3[Distribuição otimizada]
-    end
-    
-    A --> B
-    B --> C
-    
-    style A fill:#e1f5fe
-    style B fill:#f3e5f5
-    style C fill:#fff3e0
-```
+### 🔄 **Fluxo do Sistema**
+
+🌤️ **Dados Climáticos** → 🔋 **Previsão Energética** → ⚡ **Otimização**
+
+- **Coleta**: API de dados meteorológicos históricos
+- **Análise**: Modelos SARIMA/SARIMAX para previsões
+- **Ação**: Algoritmo Hill Climbing para otimização
 
 ---
 
 ## 📊 **Componentes do Sistema**
 
-<table>
-<tr>
-<td width="33%" align="center">
-
 ### 🌤️ **Dados Climáticos API**
-[![Repo](https://img.shields.io/badge/Repository-dados--climaticos--api-blue?style=for-the-badge)](https://github.com/werikcyano/dados-climaticos-api)
+[![Repo](https://img.shields.io/badge/Repository-dados--climaticos--api-blue?style=flat-square)](https://github.com/werikcyano/dados-climaticos-api)
 
 **API especializada para consulta de dados climáticos**
 
-🔹 Dados meteorológicos históricos  
-🔹 Consulta por cidade e período  
-🔹 Granularidade diária/mensal  
-🔹 Cache otimizado  
-🔹 FastAPI + Docker  
+- 🔹 Dados meteorológicos históricos
+- 🔹 Consulta por cidade e período
+- 🔹 Granularidade diária/mensal
+- 🔹 Cache otimizado
+- 🔹 FastAPI + Docker
 
-[📖 Documentação](https://github.com/werikcyano/dados-climaticos-api/blob/main/README.md) | [🚀 Deploy](https://github.com/werikcyano/dados-climaticos-api#executando-com-docker)
+**Links**: [📖 Documentação](https://github.com/werikcyano/dados-climaticos-api) | [🚀 Deploy](https://github.com/werikcyano/dados-climaticos-api#executando-com-docker)
 
-</td>
-<td width="33%" align="center">
+---
 
 ### 🔋 **EsteiraAthon - Previsão Energética**
-[![Repo](https://img.shields.io/badge/Repository-EsteiraAthon-green?style=for-the-badge)](https://github.com/Paulo-H/EsteiraAthon)
+[![Repo](https://img.shields.io/badge/Repository-EsteiraAthon-green?style=flat-square)](https://github.com/Paulo-H/EsteiraAthon)
 
 **Sistema de previsão de consumo e geração de energia**
 
-🔹 Algoritmos SARIMA/SARIMAX  
-🔹 Pipeline Apache Airflow (5 DAGs)  
-🔹 Previsão consumo + geração  
-🔹 Correlação clima-energia  
-🔹 FastAPI + PostgreSQL  
+- 🔹 Algoritmos SARIMA/SARIMAX
+- 🔹 Pipeline Apache Airflow (5 DAGs)
+- 🔹 Previsão consumo + geração
+- 🔹 Correlação clima-energia
+- 🔹 FastAPI + PostgreSQL
 
-[📖 Documentação](https://github.com/Paulo-H/EsteiraAthon/blob/main/README.md) | [🏗️ Arquitetura](https://github.com/Paulo-H/EsteiraAthon/blob/main/SISTEMA_PREVISAO_ENERGETICA.md)
+**Links**: [📖 Documentação](https://github.com/Paulo-H/EsteiraAthon) | [🏗️ Arquitetura](https://github.com/Paulo-H/EsteiraAthon/blob/main/SISTEMA_PREVISAO_ENERGETICA.md)
 
-</td>
-<td width="33%" align="center">
+---
 
 ### ⚡ **Otimizador Final - Compensação Energética**
-[![Repo](https://img.shields.io/badge/Repository-Otimizador--Final-orange?style=for-the-badge)](https://github.com/LeoCBrito/Otimizador_Final)
+[![Repo](https://img.shields.io/badge/Repository-Otimizador--Final-orange?style=flat-square)](https://github.com/LeoCBrito/Otimizador_Final)
 
 **Otimização de distribuição de compensação energética**
 
-🔹 Algoritmo Hill Climbing (Julia)  
-🔹 Processamento paralelo  
-🔹 Otimização multi-objetivo  
-🔹 API web assíncrona  
-🔹 Python + Julia + FastAPI  
+- 🔹 Algoritmo Hill Climbing (Julia)
+- 🔹 Processamento paralelo
+- 🔹 Otimização multi-objetivo
+- 🔹 API web assíncrona
+- 🔹 Python + Julia + FastAPI
 
-[📖 Documentação](https://github.com/LeoCBrito/Otimizador_Final/blob/main/README.md) | [🎯 Guia de Uso](https://github.com/LeoCBrito/Otimizador_Final/blob/main/GUIA_DE_USO.md)
-
-</td>
-</tr>
-</table>
+**Links**: [📖 Documentação](https://github.com/LeoCBrito/Otimizador_Final) | [🎯 Guia de Uso](https://github.com/LeoCBrito/Otimizador_Final/blob/main/GUIA_DE_USO.md)
 
 ---
 
@@ -199,7 +165,6 @@ Desenvolvido para EsteiraAthon 2024 - Sistema de gestão energética inteligente
 
 <div align="center">
 
-[![GitHub stars](https://img.shields.io/github/stars/werikcyano/athon-ecosystem?style=social)](https://github.com/werikcyano/athon-ecosystem/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/werikcyano/athon-ecosystem?style=social)](https://github.com/werikcyano/athon-ecosystem/network)
+[![GitHub stars](https://img.shields.io/github/stars/werikcyano/athon-ecosystem?style=social)](https://github.com/werikcyano/athon-ecosystem/stargazers) [![GitHub forks](https://img.shields.io/github/forks/werikcyano/athon-ecosystem?style=social)](https://github.com/werikcyano/athon-ecosystem/network)
 
 </div>
