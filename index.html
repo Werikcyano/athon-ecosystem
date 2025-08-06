@@ -412,32 +412,47 @@
                 <h3>1. Clone o Ecossistema Completo</h3>
                 <div class="code-block">
 # Clone todos os repositórios
+
 git clone https://github.com/werikcyano/dados-climaticos-api.git
+
 git clone https://github.com/Paulo-H/EsteiraAthon.git  
+
 git clone https://github.com/LeoCBrito/Otimizador_Final.git
+
                 </div>
                 
                 <h3>2. Execute os Serviços</h3>
                 <div class="code-block">
 # 1. Inicie API de dados climáticos (porta 8000)
+
 cd dados-climaticos-api
+
 docker-compose up -d
 
 # 2. Inicie EsteiraAthon (porta 8080)
+
 cd ../EsteiraAthon  
+
 docker-compose up -d
 
 # 3. Inicie Otimizador (porta 8001)
+
 cd ../Otimizador_Final
+
 docker-compose up -d
+
                 </div>
                 
                 <h3>3. Teste a Integração</h3>
                 <div class="code-block">
 # Verifique se todos os serviços estão rodando
+
 curl http://localhost:8000/health  # Dados climáticos
+
 curl http://localhost:8080         # EsteiraAthon (Airflow)
+
 curl http://localhost:8001/health  # Otimizador
+
                 </div>
             </div>
         </div>
@@ -481,8 +496,8 @@ curl http://localhost:8001/health  # Otimizador
 
         <!-- Footer -->
         <div class="footer">
-            <h3>👥 Equipe ATHON</h3>
-            <p>Desenvolvido para EsteiraAthon 2024 - Sistema de gestão energética inteligente.</p>
+            <h3>👥 Equipe CEIA-ATHON</h3>
+            <p>Desenvolvido para EsteiraAthon 2025 - Sistema de gestão energética inteligente.</p>
             <p><strong>⚡ Ecossistema completo para transformar dados em decisões energéticas otimizadas! 🚀</strong></p>
             
             <div class="social-badges">
