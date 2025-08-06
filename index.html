@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATHON - Ecossistema de Gestão Energética Inteligente</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            padding: 60px 0 40px;
+            color: white;
+        }
+        
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header p {
+            font-size: 1.3em;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+        
+        .badges {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        
+        .badges img {
+            height: 28px;
+        }
+        
+        .navigation {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        
+        .nav-link {
+            color: #00ff88;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: white;
+            text-shadow: 0 0 10px rgba(0,255,136,0.5);
+        }
+        
+        .content {
+            background: rgba(255,255,255,0.95);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            color: #333;
+        }
+        
+        .flow-section {
+            text-align: center;
+            margin: 50px 0;
+        }
+        
+        .flow-boxes {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        
+        .flow-box {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            min-width: 200px;
+            flex: 1;
+            max-width: 300px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .flow-box h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+        
+        .flow-box::after {
+            content: '→';
+            position: absolute;
+            right: -25px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2em;
+            color: #667eea;
+        }
+        
+        .flow-box:last-child::after {
+            display: none;
+        }
+        
+        .components {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .component {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 15px;
+            padding: 30px;
+            border-left: 5px solid;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .component:nth-child(1) { border-left-color: #007bff; }
+        .component:nth-child(2) { border-left-color: #28a745; }
+        .component:nth-child(3) { border-left-color: #fd7e14; }
+        
+        .component:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+        
+        .component h3 {
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .component p {
+            margin-bottom: 20px;
+            color: #666;
+            font-weight: 500;
+        }
+        
+        .component ul {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+        
+        .component li {
+            padding: 5px 0;
+            color: #555;
+        }
+        
+        .component li::before {
+            content: '🔹';
+            margin-right: 10px;
+        }
+        
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 20px;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            font-size: 0.9em;
+        }
+        
+        .btn:hover {
+            background: #0056b3;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,123,255,0.3);
+        }
+        
+        .btn.btn-secondary {
+            background: #6c757d;
+        }
+        
+        .btn.btn-secondary:hover {
+            background: #545b62;
+        }
+        
+        .quick-start {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 40px 0;
+        }
+        
+        .code-block {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        
+        .use-cases {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .use-case {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .footer {
+            text-align: center;
+            color: white;
+            padding: 40px 0;
+            margin-top: 60px;
+        }
+        
+        .footer h3 {
+            margin-bottom: 15px;
+        }
+        
+        .social-badges {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .header p {
+                font-size: 1.1em;
+            }
+            
+            .flow-boxes {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .flow-box::after {
+                display: none;
+            }
+            
+            .navigation {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🔋 ATHON</h1>
+            <p><strong>Ecossistema de Gestão Energética Inteligente</strong></p>
+            <p>Sistema integrado para análise, previsão e otimização de distribuição energética</p>
+            
+            <div class="badges">
+                <img src="https://img.shields.io/badge/ATHON-Ecosystem-brightgreen?style=for-the-badge" alt="ATHON Ecosystem">
+                <img src="https://img.shields.io/badge/Status-Produ%C3%A7%C3%A3o-success?style=for-the-badge" alt="Status Produção">
+                <img src="https://img.shields.io/badge/Tech-Python%7CJulia%7CFastAPI%7CAirflow-blue?style=for-the-badge" alt="Tecnologias">
+            </div>
+            
+            <div class="navigation">
+                <a href="#dados-climaticos" class="nav-link">🌤️ Dados Climáticos</a>
+                <a href="#previsao-energetica" class="nav-link">🔋 Previsão Energética</a>
+                <a href="#otimizacao" class="nav-link">⚡ Otimização</a>
+            </div>
+        </div>
+
+        <!-- Fluxo do Sistema -->
+        <div class="content">
+            <div class="flow-section">
+                <h2>🔄 Fluxo de Integração</h2>
+                <div class="flow-boxes">
+                    <div class="flow-box">
+                        <h3>📊 COLETA</h3>
+                        <p>• Dados climáticos<br>• APIs externas<br>• Histórico</p>
+                    </div>
+                    <div class="flow-box">
+                        <h3>🧠 ANÁLISE</h3>
+                        <p>• Previsões ML<br>• SARIMA/SARIMAX<br>• Pipeline</p>
+                    </div>
+                    <div class="flow-box">
+                        <h3>⚡ AÇÃO</h3>
+                        <p>• Otimização<br>• Distribuição<br>• Compensação</p>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 30px;">
+                    <p><strong>1.</strong> 🌤️ <strong>Coleta</strong>: API de dados climáticos fornece dados meteorológicos históricos</p>
+                    <p><strong>2.</strong> 🔋 <strong>Previsão</strong>: EsteiraAthon usa dados climáticos para prever consumo e geração</p>
+                    <p><strong>3.</strong> ⚡ <strong>Otimização</strong>: Otimizador Final distribui compensação com base nas previsões</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Componentes -->
+        <div class="content">
+            <h2 style="text-align: center; margin-bottom: 40px;">📊 Componentes do Sistema</h2>
+            
+            <div class="components">
+                <div class="component" id="dados-climaticos">
+                    <h3>🌤️ Dados Climáticos API</h3>
+                    <p><strong>API especializada para consulta de dados climáticos</strong></p>
+                    
+                    <ul>
+                        <li>Dados meteorológicos históricos</li>
+                        <li>Consulta por cidade e período</li>
+                        <li>Granularidade diária/mensal</li>
+                        <li>Cache otimizado</li>
+                        <li>FastAPI + Docker</li>
+                    </ul>
+                    
+                    <div class="btn-group">
+                        <a href="https://github.com/werikcyano/dados-climaticos-api" class="btn" target="_blank">📂 Repositório</a>
+                        <a href="https://github.com/werikcyano/dados-climaticos-api#executando-com-docker" class="btn btn-secondary" target="_blank">🚀 Deploy</a>
+                    </div>
+                </div>
+                
+                <div class="component" id="previsao-energetica">
+                    <h3>🔋 EsteiraAthon - Previsão Energética</h3>
+                    <p><strong>Sistema de previsão de consumo e geração de energia</strong></p>
+                    
+                    <ul>
+                        <li>Algoritmos SARIMA/SARIMAX</li>
+                        <li>Pipeline Apache Airflow (5 DAGs)</li>
+                        <li>Previsão consumo + geração</li>
+                        <li>Correlação clima-energia</li>
+                        <li>FastAPI + PostgreSQL</li>
+                    </ul>
+                    
+                    <div class="btn-group">
+                        <a href="https://github.com/Paulo-H/EsteiraAthon" class="btn" target="_blank">📂 Repositório</a>
+                        <a href="https://github.com/Paulo-H/EsteiraAthon/blob/main/SISTEMA_PREVISAO_ENERGETICA.md" class="btn btn-secondary" target="_blank">🏗️ Arquitetura</a>
+                    </div>
+                </div>
+                
+                <div class="component" id="otimizacao">
+                    <h3>⚡ Otimizador Final - Compensação Energética</h3>
+                    <p><strong>Otimização de distribuição de compensação energética</strong></p>
+                    
+                    <ul>
+                        <li>Algoritmo Hill Climbing (Julia)</li>
+                        <li>Processamento paralelo</li>
+                        <li>Otimização multi-objetivo</li>
+                        <li>API web assíncrona</li>
+                        <li>Python + Julia + FastAPI</li>
+                    </ul>
+                    
+                    <div class="btn-group">
+                        <a href="https://github.com/LeoCBrito/Otimizador_Final" class="btn" target="_blank">📂 Repositório</a>
+                        <a href="https://github.com/LeoCBrito/Otimizador_Final/blob/main/GUIA_DE_USO.md" class="btn btn-secondary" target="_blank">🎯 Guia de Uso</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Start -->
+        <div class="content">
+            <div class="quick-start">
+                <h2>🚀 Quick Start</h2>
+                
+                <h3>1. Clone o Ecossistema Completo</h3>
+                <div class="code-block">
+# Clone todos os repositórios
+git clone https://github.com/werikcyano/dados-climaticos-api.git
+git clone https://github.com/Paulo-H/EsteiraAthon.git  
+git clone https://github.com/LeoCBrito/Otimizador_Final.git
+                </div>
+                
+                <h3>2. Execute os Serviços</h3>
+                <div class="code-block">
+# 1. Inicie API de dados climáticos (porta 8000)
+cd dados-climaticos-api
+docker-compose up -d
+
+# 2. Inicie EsteiraAthon (porta 8080)
+cd ../EsteiraAthon  
+docker-compose up -d
+
+# 3. Inicie Otimizador (porta 8001)
+cd ../Otimizador_Final
+docker-compose up -d
+                </div>
+                
+                <h3>3. Teste a Integração</h3>
+                <div class="code-block">
+# Verifique se todos os serviços estão rodando
+curl http://localhost:8000/health  # Dados climáticos
+curl http://localhost:8080         # EsteiraAthon (Airflow)
+curl http://localhost:8001/health  # Otimizador
+                </div>
+            </div>
+        </div>
+
+        <!-- Casos de Uso -->
+        <div class="content">
+            <h2 style="text-align: center; margin-bottom: 30px;">🏗️ Casos de Uso</h2>
+            
+            <div class="use-cases">
+                <div class="use-case">
+                    <h3>🏘️ Municipal</h3>
+                    <p><strong>Planejamento energético urbano</strong></p>
+                    <p>Todos os 3 componentes</p>
+                </div>
+                
+                <div class="use-case">
+                    <h3>🔋 Utilities</h3>
+                    <p><strong>Gestão de geração distribuída</strong></p>
+                    <p>EsteiraAthon + Otimizador</p>
+                </div>
+                
+                <div class="use-case">
+                    <h3>🏭 Industrial</h3>
+                    <p><strong>Otimização de consumo</strong></p>
+                    <p>Dados Climáticos + EsteiraAthon</p>
+                </div>
+                
+                <div class="use-case">
+                    <h3>🔬 Pesquisa</h3>
+                    <p><strong>Análise clima-energia</strong></p>
+                    <p>Dados Climáticos + EsteiraAthon</p>
+                </div>
+                
+                <div class="use-case">
+                    <h3>💡 Smart Grid</h3>
+                    <p><strong>Balanceamento da rede</strong></p>
+                    <p>EsteiraAthon + Otimizador</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <h3>👥 Equipe ATHON</h3>
+            <p>Desenvolvido para EsteiraAthon 2024 - Sistema de gestão energética inteligente.</p>
+            <p><strong>⚡ Ecossistema completo para transformar dados em decisões energéticas otimizadas! 🚀</strong></p>
+            
+            <div class="social-badges">
+                <a href="https://github.com/werikcyano/athon-ecosystem/stargazers" target="_blank">
+                    <img src="https://img.shields.io/github/stars/werikcyano/athon-ecosystem?style=social" alt="GitHub stars">
+                </a>
+                <a href="https://github.com/werikcyano/athon-ecosystem/network" target="_blank">
+                    <img src="https://img.shields.io/github/forks/werikcyano/athon-ecosystem?style=social" alt="GitHub forks">
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
